@@ -1,0 +1,183 @@
+#tianqi {
+    display: none;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#button {
+    background-color: rgb(220, 232, 255);
+    color: rgb(122, 132, 151);
+    font-size: 18px;
+    border-radius: 20%;
+    border-color: bisque;
+    margin-left: 25%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#c,
+#d {
+    color: rgb(75, 75, 196);
+}
+
+#qiwen {
+    color: rgb(52, 128, 214);
+    font-size: 60px;
+}
+
+#qw {
+    color: rgb(42, 99, 165);
+    font-size: 30px;
+    text-indent: 25%;
+}
+
+.tlwidth,
+.top {
+    width: 100%;
+    float: left;
+}
+
+.top_l {
+    width: 75%;
+    float: left;
+}
+
+#skycon {
+    margin-top: 30px;
+    color: rgb(124, 118, 118);
+    text-indent: 25%;
+}
+
+#a {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(73, 116, 165);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-indent: 25%;
+}
+
+.weizi {
+    width: 20%;
+    float: left;
+    color: rgb(124, 118, 118);
+    font-size: 13px;
+}
+
+#wzitu {
+    float: left;
+}
+
+.wzwidth {
+    width: 100%;
+    float: left;
+}
+
+.wzsuojin {
+    text-indent: 13%;
+}
+
+.zhong,
+.z_s,
+.z_x,
+.hr {
+    width: 100%;
+    margin-top: 30px;
+    float: left;
+}
+
+.zsl,
+.zsr,
+.zxl,
+.zxr {
+    width: 40%;
+    float: left;
+}
+
+.zsl,
+.zxl {
+    margin-left: 10%;
+}
+
+.ztu {
+    margin-left: 35%;
+}
+
+.zwz {
+    margin-left: 25%;
+}
+
+#xs {
+    text-indent: 15px;
+    color: rgb(124, 118, 118);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+}
+
+.xia,
+.xx,
+.xxs,
+.xxx {
+    width: 100%;
+    float: left;
+    /*不然会实现只在一个框*/
+}
+
+.xxs,
+.xxx {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.xxpm10,
+.xxpm25,
+.xxo3,
+.xxno2,
+.xxso2,
+.xxco {
+    width: 33%;
+    float: left;
+}
+
+.shuzhi {
+    text-indent: 15px;
+}
+
+.xxtext1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.xxtext2 {
+    color: rgb(124, 118, 118);
+    font-size: 13px;
+    text-indent: 70px;
+}
+
+.xxli {
+    font-size: 10px;
+    font-weight: 900;
+    color: rgb(11, 196, 82);
+    float: left;
+    text-indent: 50px;
+}
+
+.x_api {
+    width: 20%;
+    height: 120px;
+    margin-left: 35%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: medium dashed #6699FF;
+}
+
+#aqi {
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding-top: 30%;
+    /*vertical-align: middle;
+    padding: 30%;
+    align-self: center;*/
+}

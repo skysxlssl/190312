@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="tianqi.css">
+</head>
+
+<body>
+    <input type="button" value="查看现在的天气" id="button">
+    <br><br>
+
+    <div id="tianqi">
+        <div class="top">
+            <div class="top_l">
+                <div id="qw" class="tlwidth">
+                    <span id="qiwen"></span> ℃
+                </div>
+
+                <div id="skycon" class="tlwidth"></div>
+                <div id="a" class="tlwidth"></div>
+            </div>
+            <div class="weizi">
+                <div class="wzwidth">
+                    <div id="wzitu"><img src="weizi.PNG" alt="weizi" width="20" height="20"></div>
+                    您所在的位置是：
+                </div>
+                <div class="wzwidth wzsuojin">
+                    东经<span id="c"></span>度
+                </div>
+                <div class="wzwidth wzsuojin">
+                    北纬<span id="d"></span>度
+                </div>
+            </div>
+        </div>
+
+        <div class="zhong">
+            <hr>
+            <div class="z_s">
+                <div class="zsl">
+                    <div class="ztu"><img src="shidu.PNG" alt="shidu" width="40" height="40"></div>
+                    <div id="shidu" class="zwz"></div>
+                </div>
+                <div class="zsr">
+                    <div class="ztu"><img src="kjdu.PNG" alt="kejiandu" width="40" height="40"></div>
+                    <div id="kejiandu" class="zwz"></div>
+                </div>
+            </div>
+
+
+            <div class="z_x">
+                <div class="zxl">
+                    <div class="ztu"><img src="zwx.PNG" alt="zwx" width="40" height="40"></div>
+                    <div class="zwz">紫外线强度: <span id="zi_desc"></span> </div>
+                    <div class="zwz">等级: <span id="zi_index"></span> </div>
+                </div>
+                <div class="zxr">
+                    <div class="ztu"><img src="feng.PNG" alt="feng" width="40" height="40"></div>
+                    <div class="zwz">风向: <span id="dir"></span> </div>
+                    <div class="zwz">风速: <span id="spe"></span> </div>
+                </div>
+            </div>
+            <hr class="hr">
+        </div>
+
+
+        <div class="xia">
+            <div id="xs">空气质量</div>
+            <div class="x_api">
+                <div id="aqi"></div>
+            </div>
+
+            <div class="xx">
+
+                <div class="xxs">
+                    <div class="xxpm10">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="pm10" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">PM10</div>
+                    </div>
+
+                    <div class="xxpm25">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="pm25" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">PM2.5</div>
+                    </div>
+
+                    <div class="xxo3">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="o3" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">O3</div>
+                    </div>
+                </div>
+                <div class="xxx">
+                    <div class="xxno2">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="no2" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">NO2</div>
+                    </div>
+                    <div class="xxso2">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="so2" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">SO2</div>
+                    </div>
+                    <div class="xxco">
+                        <div class="xxtext1">
+                            <div class="xxli">|</div>
+                            <div id="co" class="shuzhi"></div>
+                        </div>
+                        <div class="xxtext2">CO</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementsByTagName('input')[0].onclick = function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', 'https://api.hduhelp.com/weather/v1/realTime');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+
+                    //转化为对应的对象或数组
+                    var obj = JSON.parse(xhr.responseText);
+                    /*console.log(obj);
+                    console.log(obj.result.temperature);
+                    console.log(obj.result.comfort.desc);
+                    console.log(obj.location[0]);
+                    console.log(obj.location[1]);*/
+
+                    document.getElementById('tianqi').style.display = 'block';
+
+                    document.getElementById('skycon').innerHTML = obj.result.skycon;
+
+                    document.getElementById('d').innerHTML = obj.location[0];
+                    document.getElementById('c').innerHTML = obj.location[1];
+                    document.getElementById('a').innerHTML = "今天的天气有点 " + obj.result.comfort.desc;
+                    document.getElementById('qiwen').innerHTML = obj.result.temperature;
+
+                    document.getElementById('aqi').innerHTML = obj.result.aqi;
+                    document.getElementById('shidu').innerHTML = "空气湿度: " + obj.result.humidity;
+                    document.getElementById('kejiandu').innerHTML = "可见度: " + obj.result.visibility;
+                    document.getElementById('pm10').innerHTML = obj.result.pm10;
+                    document.getElementById('pm25').innerHTML = obj.result.pm25;
+                    document.getElementById('co').innerHTML = obj.result.co;
+                    document.getElementById('no2').innerHTML = obj.result.no2;
+                    document.getElementById('o3').innerHTML = obj.result.o3;
+                    document.getElementById('so2').innerHTML = obj.result.so2;
+
+                    document.getElementById('zi_desc').innerHTML = obj.result.ultraviolet.desc;
+                    document.getElementById('zi_index').innerHTML = obj.result.ultraviolet.index;
+
+                    document.getElementById('dir').innerHTML = obj.result.wind.direction;
+                    document.getElementById('spe').innerHTML = obj.result.wind.speed;
+
+
+                }
+            }
+            xhr.send(null);
+
+        }
+    </script>
+
+
+</body>
+
+</html>
